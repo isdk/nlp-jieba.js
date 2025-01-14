@@ -1,3 +1,5 @@
+#![allow(non_snake_case)]
+
 use jieba_rs::Jieba;
 use serde::{Deserialize, Serialize};
 use std::sync::{LazyLock, Mutex};
@@ -72,15 +74,14 @@ pub fn split(text: &str, options: Option<SplitOptions>) -> Result<Vec<JsValue>, 
     // console_log!("split: text: {}, options: {:?}", text, options);
 
     let options_obj = options.unwrap_or(SplitOptions::default());
+    let hmm = options_obj.hmm.unwrap_or(false);
+    let jieba = JIEBA.lock().unwrap();
 
     // console_log!("split: text: {}, options_obj: {:?}", text, options_obj);
     let words = match options_obj.mode {
-        Some(SplitMode::Default) | None => JIEBA.lock().unwrap().cut(text, options_obj.hmm.unwrap_or(false)),
-        Some(SplitMode::All) => JIEBA.lock().unwrap().cut_all(text),
-        Some(SplitMode::Search) => JIEBA
-            .lock()
-            .unwrap()
-            .cut_for_search(text, options_obj.hmm.unwrap_or(false)),
+        Some(SplitMode::Default) | None => jieba.cut(text, hmm),
+        Some(SplitMode::All) => jieba.cut_all(text),
+        Some(SplitMode::Search) => jieba.cut_for_search(text, hmm),
     };
     Ok(words.into_iter().map(JsValue::from).collect())
 }
@@ -97,13 +98,10 @@ pub fn tokenize(text: &str, options: Option<SplitOptions>) -> Result<Vec<JsValue
             return Err(JsError::new("Mode `all` is not valid for tokenize"));
         }
     }
-
     let hmm = options_obj.hmm.unwrap_or(false);
+    let jieba = JIEBA.lock().unwrap();
 
-    let tokens = JIEBA
-        .lock()
-        .unwrap()
-        .tokenize(text, mode_enum, hmm);
+    let tokens = jieba.tokenize(text, mode_enum, hmm);
     let ret_tokens = tokens
         .into_iter()
         .map(|tok| {
@@ -119,7 +117,6 @@ pub fn tokenize(text: &str, options: Option<SplitOptions>) -> Result<Vec<JsValue
 }
 
 #[wasm_bindgen]
-#[allow(non_snake_case)]
 pub fn addWord(word: &str, freq: Option<usize>, tag: Option<String>) -> usize {
     let option_str_ref = tag.as_deref();
 
