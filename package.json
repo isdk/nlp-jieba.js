@@ -123,7 +123,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/isdk/nlp-jieba.git"
+    "url": "git+https://github.com/isdk/nlp-jieba.js.git"
   },
   "keywords": [
     "wasm",
@@ -136,9 +136,9 @@
   "author": "Riceball LEE",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/isdk/nlp-jieba/issues"
+    "url": "https://github.com/isdk/nlp-jieba.js/issues"
   },
-  "homepage": "https://github.com/isdk/nlp-jieba#readme",
+  "homepage": "https://github.com/isdk/nlp-jieba.js#readme",
   "devDependencies": {
     "vite": "^6.0.7",
     "vitest": "^2.1.8",
