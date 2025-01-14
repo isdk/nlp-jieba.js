@@ -1,0 +1,147 @@
+{
+  "name": "@isdk/nlp-jieba",
+  "version": "1.0.0",
+  "description": "Another WASM binding to jieba-rs",
+  "main": "./dist/nodejs/jieba.js",
+  "types": "./dist/nodejs/jieba.d.ts",
+  "exports": {
+    ".": {
+      "node": {
+        "types": "./dist/nodejs/jieba.d.ts",
+        "default": "./dist/nodejs/jieba.js"
+      },
+      "deno": {
+        "types": "./dist/deno/jieba.d.ts",
+        "default": "./dist/deno/jieba.js"
+      },
+      "browser": {
+        "types": "./dist/web/jieba.d.ts",
+        "default": "./dist/web/jieba.js"
+      },
+      "import": {
+        "types": "./dist/web/jieba.d.ts",
+        "default": "./dist/web/jieba.js"
+      },
+      "require": {
+        "types": "./dist/nodejs/jieba.d.ts",
+        "default": "./dist/nodejs/jieba.js"
+      }
+    },
+    "./web": {
+      "types": "./dist/web/jieba.d.ts",
+      "default": "./dist/web/jieba.js"
+    },
+    "./node": {
+      "types": "./dist/nodejs/jieba.d.ts",
+      "default": "./dist/nodejs/jieba.js"
+    },
+    "./deno": {
+      "types": "./dist/deno/jieba.d.ts",
+      "default": "./dist/deno/jieba.js"
+    }
+  },
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "build": "wireit",
+    "build:cargo": "wireit",
+    "build:bundler": "wireit",
+    "build:nodejs": "wireit",
+    "build:deno": "wireit",
+    "build:web": "wireit",
+    "build:opt": "wireit",
+    "test": "vitest run"
+  },
+  "wireit": {
+    "build:cargo": {
+      "command": "cargo build --release --target wasm32-unknown-unknown"
+    },
+    "build:bundler": {
+      "command": "node scripts/build_wasm.js",
+      "env": {
+        "TARGET": "bundler",
+        "OUT_DIR": "dist"
+      },
+      "dependencies": [
+        "build:cargo"
+      ]
+    },
+    "build:nodejs": {
+      "command": "node scripts/build_wasm.js",
+      "env": {
+        "TARGET": "nodejs",
+        "OUT_DIR": "dist"
+      },
+      "dependencies": [
+        "build:cargo"
+      ]
+    },
+    "build:deno": {
+      "command": "node scripts/build_wasm.js",
+      "env": {
+        "TARGET": "deno",
+        "OUT_DIR": "dist"
+      },
+      "dependencies": [
+        "build:cargo"
+      ]
+    },
+    "build:web": {
+      "command": "node scripts/build_wasm.js",
+      "env": {
+        "TARGET": "web",
+        "OUT_DIR": "dist"
+      },
+      "dependencies": [
+        "build:cargo"
+      ]
+    },
+    "build": {
+      "dependencies": [
+        "build:cargo",
+        "build:bundler",
+        "build:nodejs",
+        "build:deno",
+        "build:web",
+        "build:opt"
+      ]
+    },
+    "build:opt": {
+      "command": "node scripts/opt.js",
+      "dependencies": [
+        "build:cargo",
+        "build:bundler",
+        "build:nodejs",
+        "build:deno",
+        "build:web"
+      ]
+    }
+  },
+  "files": [
+    "pkg/**/*"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/isdk/nlp-jieba.git"
+  },
+  "keywords": [
+    "wasm",
+    "nlp",
+    "jieba",
+    "chinese",
+    "segment",
+    "中文分词"
+  ],
+  "author": "Riceball LEE",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/isdk/nlp-jieba/issues"
+  },
+  "homepage": "https://github.com/isdk/nlp-jieba#readme",
+  "devDependencies": {
+    "vite": "^6.0.7",
+    "vitest": "^2.1.8",
+    "wireit": "^0.14.9"
+  }
+}
