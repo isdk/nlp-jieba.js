@@ -2,6 +2,8 @@
 
 > Use [jieba-rs](https://github.com/messense/jieba-rs)
 
+Note: I only test it on nodejs.
+
 ## Usage
 
 ```js
