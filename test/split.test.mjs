@@ -1,8 +1,9 @@
 // import test from "node:test";
 // import assert from "node:assert";
 import { describe, it, expect } from "vitest";
-import { split } from "..";
+import { split, loadDefaultDict } from "..";
 
+loadDefaultDict();
 
 describe("split", async () => {
   it("dynamic import", async () => {
