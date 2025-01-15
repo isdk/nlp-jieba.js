@@ -26,7 +26,6 @@ describe("dict", () => {
     expect(hasWord("我们开始")).toBeFalsy()
     addWord("我们开始", 301);
     expect(suggestFreq("我们开始")).toBe(301)
-    console.log('🚀 ~ it ~ addWord!!')
     expect(hasWord("中出")).toBeTruthy();
     expect(suggestFreq("中出")).toBe(348)
     addWord("中出", 300);
