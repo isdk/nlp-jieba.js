@@ -8,7 +8,10 @@
 import{
   split,
   tokenize,
-  add_word,
+  addWord,
+  removeWord,
+  hasWord,
+  suggestFreq,
   loadDefaultDict,
   loadDict,
 } from "@isdk/nlp-jieba";
@@ -50,7 +53,7 @@ split("中华人民共和国武汉市长江大桥", {mode: 'Search', hmm: true})
   '长江大桥'
 ]
 */
-tokenize("中华人民共和国武汉市长江大桥", {mode: "Default", hmm: true});
+tokenize("中华人民共和国武汉市长江大桥", {hmm: true});
 /*
 [
   { word: '中华人民共和国', start: 0, end: 7 },
