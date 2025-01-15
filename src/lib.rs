@@ -110,6 +110,12 @@ pub fn clear() {
 }
 
 #[wasm_bindgen]
+pub fn suggestFreq(segment: &str) -> Result<usize, JsValue> {
+    let freq = JIEBA.lock().unwrap().suggest_freq(segment);
+    Ok(freq)
+}
+
+#[wasm_bindgen]
 pub fn split(text: &str, options: Option<JiebaSplitOptions>) -> Result<Vec<JsValue>, JsError> {
     // console_log!("split: text: {}, options: {:?}", text, options);
 
