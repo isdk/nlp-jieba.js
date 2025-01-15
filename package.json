@@ -51,7 +51,9 @@
     "build:deno": "wireit",
     "build:web": "wireit",
     "build:opt": "wireit",
-    "test": "vitest run"
+    "test": "vitest run",
+    "release": "pnpm run build && pnpm test && pnpm dlx commit-and-tag-version -s",
+    "release.alpha": "pnpm run release -- --prerelease alpha"
   },
   "wireit": {
     "build:cargo": {
