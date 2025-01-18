@@ -1,14 +1,14 @@
 import { describe, it, expect } from "vitest";
-import { loadDefaultDict, loadDict, clear, hasWord, addWord, removeWord, suggestFreq } from "..";
+import { addDefaultDict, addDict, clear, hasWord, addWord, removeWord, suggestFreq } from "..";
 
-loadDefaultDict()
+addDefaultDict()
 
 describe("dict", () => {
   it("should clear dict", () => {
     expect(hasWord("我们")).toBeTruthy();
     clear();
     expect(hasWord("我们")).toBeFalsy();
-    loadDefaultDict();
+    addDefaultDict();
     expect(hasWord("我们")).toBeTruthy();
   });
   it("should add/remove word", () => {
@@ -35,6 +35,7 @@ describe("dict", () => {
     // Now it's significant enough
     expect(suggestFreq("中出")).toBe(500)
   })
+
   it("should load dict", () => {
     const dict = `
       我们开始 300
@@ -43,10 +44,45 @@ describe("dict", () => {
     clear();
     expect(hasWord("我们开始")).toBeFalsy();
     expect(hasWord("快乐无限")).toBeFalsy();
-    loadDict(dict);
+    addDict(dict);
     expect(hasWord("我们开始")).toBeTruthy();
     expect(hasWord("快乐无限")).toBeTruthy();
     clear();
-    loadDefaultDict()
+    addDefaultDict()
+    expect(hasWord("我们开始")).toBeFalsy();
+    expect(hasWord("快乐无限")).toBeFalsy();
+  });
+
+  it("should load dict by UInt8Array", () => {
+    const dictStr = `
+      我们开始 300
+      快乐无限 500
+    `;
+    const dict = new TextEncoder().encode(dictStr);
+    clear();
+    expect(hasWord("我们开始")).toBeFalsy();
+    expect(hasWord("快乐无限")).toBeFalsy();
+    addDict(dict);
+    expect(hasWord("我们开始")).toBeTruthy();
+    expect(hasWord("快乐无限")).toBeTruthy();
+    clear();
+    addDefaultDict()
+    expect(hasWord("我们开始")).toBeFalsy();
+    expect(hasWord("快乐无限")).toBeFalsy();
+  });
+
+  it("should load dict with clear", () => {
+    const dict = `
+      我们开始 300
+      快乐无限 500
+    `;
+    addDict(dict, true);
+    expect(hasWord("我们")).toBeFalsy();
+    expect(hasWord("快乐")).toBeFalsy();
+    expect(hasWord("我们开始")).toBeTruthy();
+    expect(hasWord("快乐无限")).toBeTruthy();
+    addDefaultDict(true)
+    expect(hasWord("我们开始")).toBeFalsy();
+    expect(hasWord("快乐无限")).toBeFalsy();
   });
 });
