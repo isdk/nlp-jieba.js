@@ -6,7 +6,7 @@ if (!hasWord('我们')) addDefaultDict()
 describe('tokenize', () => {
   it('should tag a sentence', () => {
     const result = tokenize('我喜欢吃苹果')
-    console.log('🚀 ~ it ~ result:', result)
+    // console.log('🚀 ~ it ~ result:', result)
     expect(result).toMatchInlineSnapshot(`
       [
         {
