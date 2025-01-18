@@ -80,13 +80,21 @@ macro_rules! console_log {
 static JIEBA: LazyLock<Mutex<Jieba>> = LazyLock::new(|| Mutex::new(Jieba::empty()));
 
 #[wasm_bindgen]
-pub fn loadDefaultDict() {
-    JIEBA.lock().unwrap().load_default_dict()
+pub fn addDefaultDict(clear: Option<bool>) {
+    let mut jieba = JIEBA.lock().unwrap();
+    if clear.unwrap_or(false) {
+        jieba.clear()
+    }
+    jieba.load_default_dict()
 }
 
 #[wasm_bindgen]
-pub fn loadDict(dict_content: JsValue) -> Result<(), JsError> {
+pub fn addDict(dict_content: JsValue, clear: Option<bool>) -> Result<(), JsError> {
     let mut jieba = JIEBA.lock().map_err(|_| JsError::new("Failed to acquire lock"))?;
+
+    if clear.unwrap_or(false) {
+        jieba.clear()
+    }
 
     if dict_content.is_string() {
         let dict_str = dict_content.as_string().unwrap();
