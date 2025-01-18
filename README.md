@@ -109,7 +109,8 @@ tokens.forEach(token => {
 
 * `split(text: string, options?: JiebaSplitOptions)`: Segment the text.
 * `tokenize(text: string, options?: JiebaSplitOptions)`: Segment the text and return position information.
-* `addDict(dict_content: string | Uint8Array, clear?: boolean)`: Load a custom dictionary.
+* `addDict(dict_content: string | Uint8Array, clear?: boolean)`: Load a custom dictionary. The optional parameter `clear` indicates whether to clear the existing dictionary.
+* `addDefaultDict(clear?: boolean)`: Load the default dictionary. The optional parameter `clear` indicates whether to clear the existing dictionary.
 * `clear()`: Clear all loaded words.
 * `suggestFreq(segment: string)`: Get suggested word frequency.
 * `addWord(word: string, freq?: number, tag?: string)`: Add a new word.

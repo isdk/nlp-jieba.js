@@ -109,7 +109,8 @@ tokens.forEach(token => {
 
 * `split(text: string, options?: JiebaSplitOptions)`：对文本进行分词。
 * `tokenize(text: string, options?: JiebaSplitOptions)`：对文本进行分词并返回带有位置信息的结果。
-* `addDict(dict_content: string | Uint8Array, clear?: boolean)`：加载自定义词典。
+* `addDict(dict_content: string | Uint8Array, clear?: boolean)`：加载自定义词典，可选参数 clear 表示是否清除现有词典。
+* `addDefaultDict(clear?: boolean)`: 加载默认词典，可选参数 clear 表示是否清除现有词典。
 * `clear()`：清除所有已加载的词汇。
 * `suggestFreq(segment: string)`：获取建议词频。
 * `addWord(word: string, freq?: number, tag?: string)`：添加新词。
