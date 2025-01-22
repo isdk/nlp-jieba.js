@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [2.0.1](https://github.com/isdk/nlp-jieba.js/compare/v2.0.0...v2.0.1) (2025-01-22)
+
+
+### Bug Fixes
+
+* add_word should ignore empty word to avoid panic in jiebaa-rs ([11edae0](https://github.com/isdk/nlp-jieba.js/commit/11edae0a19ceb9b959b91836a2561201181a2aca))
+
 ## [2.0.0](https://github.com/isdk/nlp-jieba.js/compare/v1.1.0...v2.0.0) (2025-01-18)
 
 

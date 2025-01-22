@@ -1,6 +1,6 @@
 {
   "name": "@isdk/nlp-jieba",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Another WASM binding to jieba-rs",
   "main": "./dist/nodejs/jieba.js",
   "types": "./dist/nodejs/jieba.d.ts",
