@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [2.1.0](https://github.com/isdk/nlp-jieba.js/compare/v2.0.1...v2.1.0) (2025-02-16)
+
+
+### Features
+
+* update jieba-rs to optimize performance ([d565cf3](https://github.com/isdk/nlp-jieba.js/commit/d565cf3fe31dd60e0bb0f89ea1f1a8d6d6177335))
+
 ## [2.0.1](https://github.com/isdk/nlp-jieba.js/compare/v2.0.0...v2.0.1) (2025-01-22)
 
 
