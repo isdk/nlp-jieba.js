@@ -121,7 +121,7 @@ describe('tag', () => {
           "word": "科技",
         },
         {
-          "tag": "n",
+          "tag": "ntg",
           "word": "有限公司",
         },
         {
