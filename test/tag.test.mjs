@@ -95,4 +95,148 @@ describe('tag', () => {
       ]
     `)
   })
+
+  it('should tag a sentence2', () => {
+    const result = tag('中国南宁美比尔科技有限公司位于乌鲁木齐的办公室，是一个美丽的地方，欧阳修经理跑得飞快地人们都在那里。"爱因斯坦和居里夫人是科学家', true)
+    expect(result).toMatchInlineSnapshot(`
+      [
+        {
+          "tag": "ns",
+          "word": "中国",
+        },
+        {
+          "tag": "ns",
+          "word": "南宁",
+        },
+        {
+          "tag": "ns",
+          "word": "美",
+        },
+        {
+          "tag": "nrt",
+          "word": "比尔",
+        },
+        {
+          "tag": "n",
+          "word": "科技",
+        },
+        {
+          "tag": "n",
+          "word": "有限公司",
+        },
+        {
+          "tag": "v",
+          "word": "位于",
+        },
+        {
+          "tag": "ns",
+          "word": "乌鲁木齐",
+        },
+        {
+          "tag": "uj",
+          "word": "的",
+        },
+        {
+          "tag": "n",
+          "word": "办公室",
+        },
+        {
+          "tag": "x",
+          "word": "，",
+        },
+        {
+          "tag": "v",
+          "word": "是",
+        },
+        {
+          "tag": "m",
+          "word": "一个",
+        },
+        {
+          "tag": "ns",
+          "word": "美丽",
+        },
+        {
+          "tag": "uj",
+          "word": "的",
+        },
+        {
+          "tag": "n",
+          "word": "地方",
+        },
+        {
+          "tag": "x",
+          "word": "，",
+        },
+        {
+          "tag": "nr",
+          "word": "欧阳修",
+        },
+        {
+          "tag": "n",
+          "word": "经理",
+        },
+        {
+          "tag": "v",
+          "word": "跑",
+        },
+        {
+          "tag": "ud",
+          "word": "得",
+        },
+        {
+          "tag": "v",
+          "word": "飞快",
+        },
+        {
+          "tag": "uv",
+          "word": "地",
+        },
+        {
+          "tag": "n",
+          "word": "人们",
+        },
+        {
+          "tag": "d",
+          "word": "都",
+        },
+        {
+          "tag": "p",
+          "word": "在",
+        },
+        {
+          "tag": "r",
+          "word": "那里",
+        },
+        {
+          "tag": "x",
+          "word": "。",
+        },
+        {
+          "tag": "x",
+          "word": """,
+        },
+        {
+          "tag": "nrt",
+          "word": "爱因斯坦",
+        },
+        {
+          "tag": "c",
+          "word": "和",
+        },
+        {
+          "tag": "nrt",
+          "word": "居里夫人",
+        },
+        {
+          "tag": "v",
+          "word": "是",
+        },
+        {
+          "tag": "n",
+          "word": "科学家",
+        },
+      ]
+    `)
+  })
 });

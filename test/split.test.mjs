@@ -24,11 +24,11 @@ describe("split", async () => {
     expect(split("中国南宁美比尔科技有限公司", options)).toEqual([ '中国', '南宁', '美', '比尔', '科技', '有限公司' ]);
   });
 
-  it.skip("should split with hmm option to true", () => {
+  it("should split with hmm option to true", () => {
     const options = {}
     options.mode = 'Default'
     options.hmm = true
-    expect(split("今天天气真好", options)).toEqual([ '今天天气', '真', '好' ]);
+    expect(split("今天天气真好", options)).toEqual([ '今天', '天气', '真', '好' ]);
   });
 
   it("should split with hmm true on complex sentence", () => {
