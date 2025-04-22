@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [2.2.0](https://github.com/isdk/nlp-jieba.js/compare/v2.1.1...v2.2.0) (2025-04-22)
+
+
+### Features
+
+* add more part of speech ([a1518dc](https://github.com/isdk/nlp-jieba.js/commit/a1518dc30655d7fe9778eb7afd8b75f1518886ad))
+
 ## [2.1.1](https://github.com/isdk/nlp-jieba.js/compare/v2.1.0...v2.1.1) (2025-04-22)
 
 
