@@ -97,7 +97,7 @@ describe('tag', () => {
   })
 
   it('should tag a sentence2', () => {
-    const result = tag('中国南宁美比尔科技有限公司位于乌鲁木齐的办公室，是一个美丽的地方，欧阳修经理跑得飞快地人们都在那里。"爱因斯坦和居里夫人是科学家', true)
+    const result = tag('中国南宁美比尔科技有限公司位于乌鲁木齐的办公室,是一个美丽的地方！欧阳修经理跑得飞快地人们都在那里。"爱因斯坦和居里夫人是科学家!', true)
     expect(result).toMatchInlineSnapshot(`
       [
         {
@@ -142,7 +142,7 @@ describe('tag', () => {
         },
         {
           "tag": "x",
-          "word": "，",
+          "word": ",",
         },
         {
           "tag": "v",
@@ -166,7 +166,7 @@ describe('tag', () => {
         },
         {
           "tag": "x",
-          "word": "，",
+          "word": "！",
         },
         {
           "tag": "nr",
@@ -235,6 +235,10 @@ describe('tag', () => {
         {
           "tag": "n",
           "word": "科学家",
+        },
+        {
+          "tag": "x",
+          "word": "!",
         },
       ]
     `)

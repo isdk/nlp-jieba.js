@@ -122,7 +122,9 @@ tags.forEach(tag => {
   - ns 地名
     - nst 音译地名
   - nt 机构团体名
+    - ntg 机构团体名语素
   - nz 其他专名，“专”的声母的第 1个字母为z，名词代码n和z并在一起。
+    - nzo 职业名， o是“occupation”的第一个字母。
   - nl 名词性惯用语
   - ng 名词性语素
 - o 拟声词，取英语拟声词 onomatopoeia的第1个字母。
