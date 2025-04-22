@@ -14,9 +14,16 @@ use js_sys::Uint8Array;
 
 // When the `wee_alloc` feature is enabled, use `wee_alloc` as the global
 // allocator.
-#[cfg(feature = "wee_alloc")]
+// #[cfg(feature = "wee_alloc")]
+// #[global_allocator]
+// static ALLOC: wee_alloc::WeeAlloc = wee_alloc::WeeAlloc::INIT;
+
+#[cfg(feature = "tiny_malloc")]
+use dlmalloc::GlobalDlmalloc;
+
+#[cfg(feature = "tiny_malloc")]
 #[global_allocator]
-static ALLOC: wee_alloc::WeeAlloc = wee_alloc::WeeAlloc::INIT;
+static ALLOC: GlobalDlmalloc = GlobalDlmalloc;
 
 // #[wasm_bindgen]
 #[derive(Tsify, Serialize, Deserialize, Debug)]

@@ -8,7 +8,8 @@ edition = "2021"
 crate-type = ["cdylib", "rlib"]
 
 [features]
-default = ["console_error_panic_hook", "wee_alloc"]
+default = ["console_error_panic_hook", "tiny_malloc"]
+tiny_malloc = ["dlmalloc/global"]
 
 [dependencies]
 wasm-bindgen = { version = "0.2.100", features = ["serde-serialize"] }
@@ -27,7 +28,8 @@ console_error_panic_hook = { version = "0.1.7", optional = true }
 # allocator, however.
 #
 # Unfortunately, `wee_alloc` requires nightly Rust when targeting wasm for now.
-wee_alloc = { version = "0.4.5", optional = true }
+# wee_alloc = { version = "0.4.5", optional = true }
+dlmalloc = { version = "0.2.8", optional = true }
 tsify = "0.4.5"
 js-sys = "0.3.77"
 
