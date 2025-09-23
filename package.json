@@ -121,7 +121,7 @@
     }
   },
   "files": [
-    "pkg/**/*"
+    "dist"
   ],
   "repository": {
     "type": "git",
@@ -142,8 +142,8 @@
   },
   "homepage": "https://github.com/isdk/nlp-jieba.js#readme",
   "devDependencies": {
-    "vite": "^6.0.7",
-    "vitest": "^2.1.8",
+    "vite": "^7.1.4",
+    "vitest": "^3.2.4",
     "wireit": "^0.14.9"
   }
 }
